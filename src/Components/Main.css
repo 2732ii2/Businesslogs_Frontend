@@ -1,0 +1,26 @@
+.Signup{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: 10%;
+    flex-direction: column;
+}
+.mainHeading{
+    margin-top: 40px;
+}
+
+@media (max-width:1280px) {
+    .Signup{
+        margin-top: 25%;
+    }
+}
+@media (max-width:720px) {
+    .Signup{
+        margin-top: 25%;
+    }
+}
+@media (max-width:640px) {
+    .Signup{
+        margin-top: 35%;
+    }
+}
