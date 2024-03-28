@@ -1,4 +1,4 @@
-.Signup{
+.Register{
     display: flex;
     /* justify-content: center; */
     align-items: center;
@@ -8,31 +8,32 @@
 .mainHeading{
     margin-top: 40px;
 }
-.main_p{
+.reg_p{
     margin-top: 35px;
     font-size: 20px;
 }
-.main_span{
+.reg_span{
     color: red;
+    margin-left: 5px;
     cursor: pointer;
     text-decoration: underline;
 }
 @media (max-width:1280px) {
-    .Signup{
+    .Register{
         margin-top: 25%;
     }
 }
 @media (max-width:720px) {
-    .Signup{
+    .Register{
         margin-top: 25%;
     }
 }
 @media (max-width:640px) {
-    .Signup{
-        margin-top: 27%;
+    .Register{
+        margin-top: 22%;
     }
-    .main_p{
-        max-width: 85%;
+    .reg_p{
+        max-width: auto;
         text-align: center;
     }
 }

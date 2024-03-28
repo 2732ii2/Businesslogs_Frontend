@@ -30,6 +30,7 @@ export default function SignUp() {
             <Inputs value={userNameValue} eventHandler={UserEventHandler} label={"User ID"} type={"text"} placeholder={"...  type "} />
             <Inputs value={passwordValue} eventHandler={PasswordEventHandler} label={"Password"} type={"password"} placeholder={"... type  "} />
             <InputButtons value={"Login"} eventHandler={ClickHandler}/>
+            <p className='main_p' >Don't have an account ? Do <span onClick={()=> navi("/register")} className='main_span'>Register</span> </p>
             <Toasterfunc  />
     </div>
   )
