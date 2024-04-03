@@ -25,7 +25,7 @@ export default function Register() {
         console.log("Register");
         if( userIDValue && passwordValue && userNameValue)
         {
-            const resp=  await axios.post("http://localhost:7500/register",{
+            const resp=  await axios.post("https://businesslogs-backend.onrender.com/register",{
                 "userId":userIDValue,
                 "userName":userNameValue,
                 "password":passwordValue
@@ -34,12 +34,20 @@ export default function Register() {
             if(resp?.data?.err){
                 console.log(resp?.data?.err);
                 toast.error( `${resp?.data?.err}`)
-                
             }
             else{
                 console.log(resp?.data?.msg);
                 toast.success( `${resp?.data?.msg}`)
+                setTimeout(() => {
+                    setuserIDValue("");
+                    setpasswordValue("");
+                    setuserNameValue("");
+                    navi("/home");
+                }, 1000);
             }
+        }
+        else{
+            toast.error( 'fill the credientials')
         }
     }
   return (
