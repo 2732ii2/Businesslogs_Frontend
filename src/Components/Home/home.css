@@ -123,3 +123,6 @@
         margin-top: 40px;
     }
 }
+._p{
+    text-transform: capitalize;
+}

@@ -1,6 +1,5 @@
 .Register{
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     margin-top: 10%;
     flex-direction: column;
@@ -30,7 +29,8 @@
 }
 @media (max-width:640px) {
     .Register{
-        margin-top: 22%;
+        margin-top: auto;
+        margin-bottom: auto;
     }
     .reg_p{
         max-width: auto;

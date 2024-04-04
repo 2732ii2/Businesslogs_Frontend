@@ -41,6 +41,9 @@ export default function Register() {
                 setTimeout(() => {
                     setuserIDValue("");
                     setpasswordValue("");
+                    if(!(localStorage.getItem("userdata"))){
+                        localStorage.setItem("userdata",JSON.stringify(resp?.data));
+                    }
                     setuserNameValue("");
                     navi("/home");
                 }, 1000);

@@ -16,7 +16,7 @@ export default function Inputs(props) {
             
         />
         {
-            type=="password"?<img onClick={()=>setstate(!state)} src={ !state? hide:show} style={{position:"absolute",fontSize:"12px",width:"20px",height:"20px",left:"auto",right:14,bottom:"auto",top:12}} />:null
+            type=="password"?<img onClick={()=>setstate(!state)} src={ state? hide:show} style={{position:"absolute",fontSize:"12px",width:"20px",height:"20px",left:"auto",right:14,bottom:"auto",top:12}} />:null
         }
     </div>
   )

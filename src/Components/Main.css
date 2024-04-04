@@ -29,7 +29,8 @@
 }
 @media (max-width:640px) {
     .Signup{
-        margin-top: 27%;
+        margin-top: auto;
+        margin-bottom: auto;
     }
     .main_p{
         max-width: 85%;

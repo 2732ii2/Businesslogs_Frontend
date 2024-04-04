@@ -1,23 +1,20 @@
 import './App.css';
-import {Routes,Route} from "react-router-dom";
 import SignUp from './Components/Sign-up';
 import Homepage from './Components/Home/Homepage';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import NotFound from './Components/Notfound';
+import {Provider} from "react-redux";
+import store from './Redux/store';
 import Register from './Components/Register/Register';
+import MainPage from './mainPage';
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route  path={"/"} element={<SignUp />} />
-        <Route  path={"/register"} element={<Register />} />
-        <Route  path={"/home"} element={<Homepage />} />
-        <Route  path={"/dataInsert"} element={<SignUp />} />
-        <Route  path={"/viewdata"} element={<SignUp />} />
-        <Route  path={"/expensetracker"} element={<SignUp />} />
-      </Routes>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <MainPage />
+      </div>
+    </Provider>
   );
 }
 

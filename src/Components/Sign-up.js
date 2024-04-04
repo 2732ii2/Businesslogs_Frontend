@@ -1,13 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Inputs from '../Re-usableComp/Inputs'
 import InputButtons from '../Re-usableComp/InputButtons';
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import "./Main.css";
+import {useDispatch,useSelector} from "react-redux";
+import updateUser from '../Redux/action';
 import toast from 'react-hot-toast';
 import Toasterfunc from '../Re-usableComp/Toaster';
 export default function SignUp() {
     const [userNameValue,setUserValue]=useState("");
+    const dispatch=useDispatch();
+    const redux_state = useSelector((state) => state);
+    console.log(redux_state);
+    useEffect(()=>{
+    console.log(redux_state);
+    },[redux_state])
     const [passwordValue,setPasswordValue]=useState("");
     const navi=useNavigate();
     function UserEventHandler(e){
@@ -30,7 +38,17 @@ export default function SignUp() {
                 toast.error( `${resp?.data?.err}`)
             }
             else{
-                console.log(resp?.data?.msg);
+                console.log(resp?.data?.msg,resp?.data?.userName,resp?.data?.token);
+                if(resp?.data?.userName)
+                {
+                    dispatch(updateUser(resp?.data?.userName));
+                    if(!(localStorage.getItem("userdata"))){
+                        localStorage.setItem("userdata",JSON.stringify(resp?.data));
+                    }
+                    else{
+                        console.log("already signed in");
+                    }
+                }
                 toast.success( `${resp?.data?.msg}`)
                 setTimeout(() => {
                     setPasswordValue("");

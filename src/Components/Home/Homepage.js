@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./home.css";
 import user from "../../Re-usableComp/user.png";
 import logout from "../../Re-usableComp/logout.png";
@@ -7,8 +7,13 @@ import InputButtons from '../../Re-usableComp/InputButtons';
 import {useNavigate} from "react-router-dom";
 export default function Homepage() {
   const [update,setupdate]=useState(0);
+  const [user_,setuser]=useState({});
+  console.log(user_);
   const navi=useNavigate();
   console.log(update);
+  useEffect(()=>{
+    setuser(JSON.parse(localStorage.getItem("userdata")))
+  },[])
   const eventCall=()=>{
     if(update===1){
       navi("/viewdata");
@@ -26,9 +31,12 @@ export default function Homepage() {
       <div className='upperSlide'>
         <div className='userInfo'>
           <ImageComp src={user}  style={{width:"30px",height:"30px"}} />
-          <p>  Amil</p>
+          <p className='_p'> {user_?.userName?user_?.userName:  " "}</p>
         </div>
-        <ImageComp src={logout}  style={{width:"30px",height:"30px"}} />
+        <ImageComp src={logout} onClick={()=>{
+          localStorage.removeItem("userdata");
+          navi("/");
+        }}  style={{width:"30px",height:"30px"}} />
       </div>
       <h2 className='subheading'>Welcome to your Business Logs</h2>
       <div className='select_'> Select any one</div>
