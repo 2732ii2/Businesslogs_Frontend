@@ -11,12 +11,13 @@ import Toasterfunc from '../Re-usableComp/Toaster';
 export default function SignUp() {
     const [userNameValue,setUserValue]=useState("");
     const dispatch=useDispatch();
+    const [loading,setloading]=useState(false);
     const redux_state = useSelector((state) => state);
     console.log(redux_state);
+    const [passwordValue,setPasswordValue]=useState("");
     useEffect(()=>{
     console.log(redux_state);
     },[redux_state])
-    const [passwordValue,setPasswordValue]=useState("");
     const navi=useNavigate();
     function UserEventHandler(e){
         setUserValue(e.target.value);
@@ -24,15 +25,15 @@ export default function SignUp() {
     function PasswordEventHandler(e){
         setPasswordValue(e.target.value);
     }
-    async function ClickHandler(e){
-        console.log(e);
+    async function ClickHandler(){
         if( passwordValue && userNameValue)
         {
+            setloading(true);
             const resp=  await axios.post("https://businesslogs-backend.onrender.com/login",{
                 "userName":userNameValue,
                 "password":passwordValue
             })
-            console.log(resp?.data);
+            setloading(false);
             if(resp?.data?.err){
                 console.log(resp?.data?.err);
                 toast.error( `${resp?.data?.err}`)
@@ -66,9 +67,10 @@ export default function SignUp() {
             <h1 className='mainHeading'>Business Logs</h1>   
             <Inputs value={userNameValue} eventHandler={UserEventHandler} label={"User Name"} type={"text"} placeholder={"...  type "} />
             <Inputs value={passwordValue} eventHandler={PasswordEventHandler} label={"Password"} type={"password"} placeholder={"... type  "} />
-            <InputButtons value={"Login"} eventHandler={ClickHandler}/>
+            <InputButtons value={"Login"} eventHandler={ClickHandler} disabled={loading} showloader={loading}/>
             <p className='main_p' >Don't have an account ? Do <span onClick={()=> navi("/register")} className='main_span'>Register</span> </p>
             <Toasterfunc  />
+           
     </div>
   )
 }

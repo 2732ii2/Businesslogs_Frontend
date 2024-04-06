@@ -10,6 +10,7 @@ import "./register.css";
 export default function Register() {
     const [userIDValue,setuserIDValue]=useState("");
     const [passwordValue,setpasswordValue]=useState("");
+    const [loading,setloading]=useState(false);
     const [userNameValue,setuserNameValue]=useState("");
     const navi=useNavigate();
     function UserIdEventHandler(e){
@@ -25,11 +26,13 @@ export default function Register() {
         console.log("Register");
         if( userIDValue && passwordValue && userNameValue)
         {
+            setloading(true);
             const resp=  await axios.post("https://businesslogs-backend.onrender.com/register",{
                 "userId":userIDValue,
                 "userName":userNameValue,
                 "password":passwordValue
             })
+            setloading(false);
             console.log(resp?.data);
             if(resp?.data?.err){
                 console.log(resp?.data?.err);
@@ -59,7 +62,7 @@ export default function Register() {
         <Inputs value={userIDValue} eventHandler={UserIdEventHandler} label={"User ID"} type={"text"} placeholder={"...  type "} />
         <Inputs value={userNameValue} eventHandler={UserNameEventHandler} label={"User Name"} type={"text"} placeholder={"...  type "} />
         <Inputs value={passwordValue} eventHandler={PasswordEventHandler} label={"Password"} type={"password"} placeholder={"... type  "} />
-        <InputButtons value={"Register"} eventHandler={ClickHandler}/>
+        <InputButtons value={"Register"} eventHandler={ClickHandler} disabled={loading} showloader={loading}/>
         <p className='reg_p' >Already have an account<span onClick={()=>navi("/")} className='reg_span'>Login</span> </p>
         <Toasterfunc  />
     </div>

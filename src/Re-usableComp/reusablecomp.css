@@ -41,6 +41,10 @@ button{
     padding-right: 20px;
     text-align: center;
 }
+button:disabled{
+
+    background: rgb(85, 84, 84,.5);
+}
 
 
 @media  (max-width:1280px) {
@@ -79,3 +83,39 @@ button{
     
 }
 
+
+
+.loader{
+    border: 2px solid white;
+    border-bottom: 2px solid red;
+    border-left: 2px solid red;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -38px;
+    margin-left: 60%;
+    margin-right: auto;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    animation: loading 1s  .2s infinite linear ;
+}
+@keyframes loading {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(720deg);}
+}
+
+#insideloader{
+    width: 25px;
+    height: 25px;
+    border: 2px solid red;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+    border-radius: 50%;
+    animation: spinleft 1s  .2s infinite linear ;
+}
+@keyframes spinleft {
+    from {transform:rotate(360deg);}
+  to {transform:rotate(0deg);}
+}

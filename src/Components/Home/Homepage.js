@@ -8,7 +8,6 @@ import {useNavigate} from "react-router-dom";
 export default function Homepage() {
   const [update,setupdate]=useState(0);
   const [user_,setuser]=useState({});
-  console.log(user_);
   const navi=useNavigate();
   console.log(update);
   useEffect(()=>{
