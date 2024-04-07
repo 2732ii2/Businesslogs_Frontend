@@ -1,9 +1,11 @@
-# Solution for Retailer shop data , for Saving and getting extracting result's out of it
+<h2> Solution for Retailer shop data , for Saving and getting extracting result's out of it</h2>
 
 
-# Figma Design for this project  : https://www.figma.com/file/xcbbuNwUd2L5hmHctkxbT0/Untitled?type=design&node-id=0-1&mode=design&t=wpNwx327nCbaiLZf-0
+# Figma Design for this project  
+: https://www.figma.com/file/xcbbuNwUd2L5hmHctkxbT0/Untitled?type=design&node-id=0-1&mode=design&t=wpNwx327nCbaiLZf-0
 
-# Deployed link : [busiesslogs.netlify.com](https://businesslogs.netlify.app/) and backend servies deployed at render free web services
+# Deployed link :
+[busiesslogs.netlify.com](https://businesslogs.netlify.app/) and backend servies deployed at render free web services
 <h2> Work is still going on </h2>
 
 # Getting Started with Create React App
