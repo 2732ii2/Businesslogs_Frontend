@@ -15,6 +15,7 @@ export default function SignUp() {
     const redux_state = useSelector((state) => state);
     console.log(redux_state);
     const [passwordValue,setPasswordValue]=useState("");
+    const [state,setstate]=useState(false);
     useEffect(()=>{
     console.log(redux_state);
     },[redux_state])
@@ -39,7 +40,7 @@ export default function SignUp() {
                 toast.error( `${resp?.data?.err}`)
             }
             else{
-                console.log(resp?.data?.msg,resp?.data?.userName,resp?.data?.token);
+                // console.log(resp?.data?.msg,resp?.data?.userName,resp?.data?.token);
                 if(resp?.data?.userName)
                 {
                     dispatch(updateUser(resp?.data?.userName));
@@ -62,6 +63,22 @@ export default function SignUp() {
             toast.error( 'fill the credientials')
         }
     }
+    useEffect(()=>{
+        const eventListener=(e)=>{
+            console.log(e.key);
+            console.log("=>",userNameValue,passwordValue,state);
+            if(e.key==="Enter"){
+                setstate(!state);
+                if(userNameValue && passwordValue)
+                ClickHandler();
+            }
+        }
+        document.addEventListener("keypress",eventListener);
+        return ()=>{
+                document.removeEventListener("keypress",eventListener)
+        }
+        
+    },[state])
   return (
     <div className='Signup'>
             <h1 className='mainHeading'>Business Logs</h1>   
