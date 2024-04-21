@@ -142,7 +142,7 @@ export default function DataInsert() {
             }
             {
               update===2? <>
-              <Inputs style={{width:"95%",minWidth:"100px"}} label={"Repaired Product"} value={reparingState.reparing} eventHandler={(e)=>{
+              <Inputs style={{width:"95%",minWidth:"100px"}} label={"Repaired"} value={reparingState.reparing} eventHandler={(e)=>{
                 setReparingState({
                   ...reparingState,reparing:e.target.value
                 })
