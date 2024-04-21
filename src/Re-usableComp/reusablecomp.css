@@ -8,9 +8,10 @@
     padding-right: 10px;
     padding-top: 10px;
     padding-bottom: 5px;
-    min-width: 70vw;
-    margin-top: 30px;
-    margin-bottom: 10px;
+    /* min-width: 100px; */
+    width: 100px;
+    margin-top: 20px;
+    /* margin-bottom: 10px; */
     box-shadow: 6px 7px 0px 0 rgba(0,0,0,.4);
 }
 input{
@@ -19,7 +20,7 @@ input{
     padding: 3px;
     font-size: 16px;
     border: 1px solid rgb(135, 132, 132,.3);
-    width: 100px;
+    /* width: 100px; */
     border-radius: 3px;
     background: transparent;
     text-align: center;
@@ -35,10 +36,9 @@ button{
     padding-left: 20px;
     border-radius: 4px;
     box-shadow: 7px 8px 0 1px rgba(180,150,140.2);
-    margin-top: 80px;
-    min-width: 75vw;
-    margin-left: 5px;
-    padding-right: 20px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
 }
 button:disabled{
@@ -55,11 +55,12 @@ button:disabled{
 }
 @media  (min-width:1280px) {
     .mainInputs{
-        min-width: 20vw;
+        /* min-width: 20vw; */
+        width: 200px;
 
     }
     button{
-        min-width: 21vw;
+        /* min-width: 21vw; */
     }
     
     input{
@@ -69,10 +70,10 @@ button:disabled{
 }
 @media  (min-width:780px) {
     .mainInputs{
-        min-width: 30vw;
+        /* min-width: 30vw; */
     }
     button{
-        min-width: 31vw;
+        /* min-width: 31vw; */
     }
     
 }
@@ -80,23 +81,29 @@ button:disabled{
     input{
         font-size: 14px;
     }
-    
+    button{
+        width:auto;
+        min-width:300px;
+    }
+    .mainInputs{
+        width:auto !important;
+        min-width:280px !important;
+    }
 }
 
 
 
 .loader{
-    border: 2px solid white;
     border-bottom: 2px solid red;
     border-left: 2px solid red;
-    width: 35px;
+    width: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -38px;
-    margin-left: 60%;
+    margin-top: -8px;
+    margin-left: -30%;
     margin-right: auto;
-    height: 35px;
+    height: 30px;
     border-radius: 50%;
     position: absolute;
     animation: loading 1s  .2s infinite linear ;
@@ -109,9 +116,8 @@ button:disabled{
 #insideloader{
     width: 25px;
     height: 25px;
-    border: 2px solid red;
-    border-bottom: 2px solid white;
-    border-left: 2px solid white;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
     border-radius: 50%;
     animation: spinleft 1s  .2s infinite linear ;
 }

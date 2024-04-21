@@ -27,6 +27,8 @@ export default function Register() {
         if( userIDValue && passwordValue && userNameValue)
         {
             setloading(true);
+            // const resp=  await axios.post("http://54.83.142.208:7500/register",{
+
             const resp=  await axios.post("https://businesslogs-backend.onrender.com/register",{
                 "userId":userIDValue,
                 "userName":userNameValue,
@@ -59,10 +61,12 @@ export default function Register() {
   return (
     <div className='Register'>
         <h1 className='mainHeading'>Business Logs</h1>   
-        <Inputs value={userIDValue} eventHandler={UserIdEventHandler} label={"User ID"} type={"text"} placeholder={"...  type "} />
-        <Inputs value={userNameValue} eventHandler={UserNameEventHandler} label={"User Name"} type={"text"} placeholder={"...  type "} />
-        <Inputs value={passwordValue} eventHandler={PasswordEventHandler} label={"Password"} type={"password"} placeholder={"... type  "} />
+        <Inputs value={userIDValue} style={{width:"95%",minWidth:"100px"}} eventHandler={UserIdEventHandler} label={"User ID"} type={"text"} placeholder={"...  type "} />
+        <Inputs value={userNameValue} style={{width:"95%",minWidth:"100px"}} eventHandler={UserNameEventHandler} label={"User Name"} type={"text"} placeholder={"...  type "} />
+        <Inputs value={passwordValue} style={{width:"95%",minWidth:"100px"}} eventHandler={PasswordEventHandler} label={"Password"} type={"password"} placeholder={"... type  "} />
+        <div className='buttonsdiv'>
         <InputButtons value={"Register"} eventHandler={ClickHandler} disabled={loading} showloader={loading}/>
+        </div>
         <p className='reg_p' >Already have an account<span onClick={()=>navi("/")} className='reg_span'>Login</span> </p>
         <Toasterfunc  />
     </div>

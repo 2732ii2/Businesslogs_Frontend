@@ -1,0 +1,31 @@
+.sidenav{
+    position: absolute;
+    height: 100%;
+    width: 250px;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-width: 250px;
+    padding-top: 20%;
+    gap: 20px;
+    transition: all .5s;
+    background: rgb(255, 255, 255,.4);
+    border: 1px solid rgb(255, 255, 255,.9) ;
+}
+.innerdivs{
+    display: flex;
+    gap: 5px;
+    transition:  all .2s;
+    font-size: 20px;
+    align-items: start;
+    min-width: 180px;
+}
+.innerdivs:hover{
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+.innerdivs:hover .icons_spe{
+    color: blue;
+}

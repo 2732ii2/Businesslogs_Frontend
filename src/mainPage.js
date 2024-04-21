@@ -4,6 +4,8 @@ import Register from './Components/Register/Register'
 import Homepage from './Components/Home/Homepage'
 import {Routes,Route} from "react-router-dom";
 import {useSelector} from "react-redux";
+import DataInsert from './Components/DataInsert/dataInsert';
+import ViewLogs from './Components/ViewLogs/ViewLogs';
 export default function MainPage() {
     const redux_state = useSelector((state) => state);
     console.log(redux_state);
@@ -16,8 +18,8 @@ export default function MainPage() {
           <Route  path={"/"} element={  <SignUp />} />
           <Route  path={"/register"} element={<Register />} />
           <Route  path={"/home"} element={<Homepage />} />
-          <Route  path={"/dataInsert"} element={<SignUp />} />
-          <Route  path={"/viewdata"} element={<SignUp />} />
+          <Route  path={"/dataInsert"} element={<DataInsert />} />
+          <Route  path={"/viewdata"} element={<ViewLogs />} />
           <Route  path={"/expensetracker"} element={<SignUp />} />
         </Routes>
     </>
