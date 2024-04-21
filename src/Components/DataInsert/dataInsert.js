@@ -102,7 +102,7 @@ export default function DataInsert() {
   return (
     <div className='main'>
       <div className='upperSlide'>
-        <div className='userInfo' onClick={(e)=>setShowSideNav(!showsideNav)}>
+      <div className='userInfo' onClick={(e)=>setShowSideNav(!showsideNav)}>
           <ImageComp src={user}  style={{width:"30px",height:"30px"}} />
           <p className='_p'> {user_?.userName?user_?.userName:  " "}</p>
         </div>
@@ -142,7 +142,7 @@ export default function DataInsert() {
             }
             {
               update===2? <>
-              <Inputs style={{width:"95%",minWidth:"100px"}} label={"Repairing"} value={reparingState.reparing} eventHandler={(e)=>{
+              <Inputs style={{width:"95%",minWidth:"100px"}} label={"Repaired Product"} value={reparingState.reparing} eventHandler={(e)=>{
                 setReparingState({
                   ...reparingState,reparing:e.target.value
                 })
@@ -156,7 +156,7 @@ export default function DataInsert() {
             }
             {
               update===1? <>
-              <Inputs style={{width:"95%",minWidth:"100px"}} label={"Helmet Name"} value={sellingState.nameofHelment} eventHandler={(e)=>{
+              <Inputs style={{width:"95%",minWidth:"100px"}} label={"Product Name"} value={sellingState.nameofHelment} eventHandler={(e)=>{
                   setSellingState({
                     ...sellingState,nameofHelment:e.target.value
                   })
