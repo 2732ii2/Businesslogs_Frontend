@@ -32,3 +32,10 @@ select{
     border-radius: 20px;
 }
 
+
+@media (max-width:640px) {
+    .subheading{
+        margin-top: 40px;
+        font-size: 22px;
+    }
+}

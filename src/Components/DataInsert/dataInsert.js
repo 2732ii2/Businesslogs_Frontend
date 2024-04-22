@@ -13,8 +13,8 @@ import InputButtons from '../../Re-usableComp/InputButtons';
 import { useNavigate } from 'react-router-dom';
 import SideNav from '../Sidenav/SideNav';
 export default function DataInsert() {
-    const [update,setupdate]=useState(0);
-    const [show,setshow]=useState(false);
+    const [update,setupdate]=useState(1);
+    const [show,setshow]=useState(true);
     const [showsideNav,setShowSideNav]=useState(false);
     const [makenill,setMakeNill]=useState(false);
     const navi=useNavigate();
@@ -156,7 +156,7 @@ export default function DataInsert() {
             }
             {
               update===1? <>
-              <Inputs style={{width:"95%",minWidth:"100px"}} label={"Product Name"} value={sellingState.nameofHelment} eventHandler={(e)=>{
+              <Inputs style={{width:"95%",minWidth:"100px"}} label={"Product"} value={sellingState.nameofHelment} eventHandler={(e)=>{
                   setSellingState({
                     ...sellingState,nameofHelment:e.target.value
                   })

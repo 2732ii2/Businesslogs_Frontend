@@ -7,11 +7,19 @@
     align-items: center;
     flex-direction: column;
     min-width: 250px;
+    backdrop-filter: blur(50px);
     padding-top: 20%;
     gap: 20px;
     transition: all .5s;
     background: rgb(255, 255, 255,.4);
     border: 1px solid rgb(255, 255, 255,.9) ;
+}
+@media (max-width:624px) {
+    .sidenav{
+    padding-top: 40%;
+
+    }
+    
 }
 .innerdivs{
     display: flex;

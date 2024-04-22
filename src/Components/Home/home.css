@@ -112,9 +112,14 @@
     background: rgb(131, 244, 131,.7);
 }
 @media (max-width:640px) {
-    .select_,.options_{
+    .select_{
         width: 50% !important; 
         max-width: 50% !important; 
+    }
+    .options_{
+        width:250px;
+      
+
     }
     .homebutton{
         width: 60% !important; 
