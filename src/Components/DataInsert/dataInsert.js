@@ -56,7 +56,9 @@ export default function DataInsert() {
           setloading(false);
           console.log(data);
           toast.success(data.data.message);
-
+          setTimeout(() => {
+            navi("/viewdata");
+          }, 1000);
         }
         else if(update===2){
           console.log(reparingState)
@@ -65,7 +67,9 @@ export default function DataInsert() {
           setloading(false);
           console.log(data);
           toast.success(data.data.message);
-
+          setTimeout(() => {
+            navi("/viewdata");
+          }, 1000);
         }
         else{
           console.log(expenseState);
@@ -74,6 +78,9 @@ export default function DataInsert() {
           console.log(data);
           setloading(false);
           toast.success(data.data.message);
+          setTimeout(() => {
+            navi("/viewdata");
+          }, 1000);
       }
         setMakeNill(!makenill);
       }
@@ -128,7 +135,7 @@ export default function DataInsert() {
             }
             {
              update===3? <>
-              <Inputs style={{width:"95%",minWidth:"100px"}} label={"Expense"} value={expenseState.nameofExpense} eventHandler={(e)=>{
+              <Inputs style={{width:"24%",minWidth:"100px"}} label={"Expense"} value={expenseState.nameofExpense} eventHandler={(e)=>{
               setExpenseState({
                 ...expenseState,nameofExpense:e.target.value
               })
@@ -137,12 +144,12 @@ export default function DataInsert() {
               setExpenseState({
                 ...expenseState,price:e.target.value
               })
-            }} style={{width:"95%",minWidth:"100px"}} label={"Price "} placeholder={"... Expense price"} type={"number"} />
+            }} style={{width:"24%",minWidth:"100px"}} label={"Price "} placeholder={"... Expense price"} type={"number"} />
             </>:null
             }
             {
               update===2? <>
-              <Inputs style={{width:"95%",minWidth:"100px"}} label={"Repaired"} value={reparingState.reparing} eventHandler={(e)=>{
+              <Inputs style={{width:"24%",minWidth:"100px"}} label={"Repaired"} value={reparingState.reparing} eventHandler={(e)=>{
                 setReparingState({
                   ...reparingState,reparing:e.target.value
                 })
@@ -151,12 +158,12 @@ export default function DataInsert() {
                setReparingState({
                 ...reparingState,reparingprice:e.target.value
               })
-            }} style={{width:"95%",minWidth:"100px"}} label={"Price "} placeholder={"... type "} type={"number"} />
+            }} style={{width:"24%",minWidth:"100px"}} label={"Price "} placeholder={"... type "} type={"number"} />
             </>:null
             }
             {
               update===1? <>
-              <Inputs style={{width:"95%",minWidth:"100px"}} label={"Product"} value={sellingState.nameofHelment} eventHandler={(e)=>{
+              <Inputs style={{width:"24%",minWidth:"100px"}} label={"Product"} value={sellingState.nameofHelment} eventHandler={(e)=>{
                   setSellingState({
                     ...sellingState,nameofHelment:e.target.value
                   })
@@ -165,7 +172,7 @@ export default function DataInsert() {
               setSellingState({
                 ...sellingState,sellingprice:e.target.value
               })
-            }} style={{width:"95%",minWidth:"100px"}} label={"Price "} placeholder={"... type "} type={"number"} />
+            }} style={{width:"24%",minWidth:"100px"}} label={"Price "} placeholder={"... type "} type={"number"} />
             </>:null
             }
         </div>

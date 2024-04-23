@@ -15,7 +15,7 @@ export default function SideNav(props) {
       navi("/dataInsert")
 
     }else if(pagename=="View Logs"){
-      alert("we will take you that at next updation");
+      navi("/viewdata");
     } 
     else if(pagename=="Expense Tracker"){
       alert("we will take you that at next updation");

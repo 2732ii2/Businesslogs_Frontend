@@ -17,8 +17,8 @@ export default function Homepage() {
   },[])
   const eventCall=()=>{
     if(update===1){
-      // navi("/viewdata");
-      alert("we will send you to that page : in Next updation");
+      navi("/viewdata");
+      // alert("we will send you to that page : in Next updation");
 
     }
     else if(update===2){
@@ -29,7 +29,7 @@ export default function Homepage() {
       // navi("/expensetracker");
     }
   }
-  var list_=["View Logs"," Insert Logs","Expenditure"];
+  var list_=["View Logs"," Insert Logs","Expense Calculator"];
   return (
     <div className='home'>
       <div className='upperSlide'>
