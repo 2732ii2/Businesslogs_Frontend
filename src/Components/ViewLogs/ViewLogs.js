@@ -80,7 +80,7 @@ export default function ViewLogs() {
 
     },[update]);
   return (
-    <div className='view'>
+    <div className='main'>
     <div className='upperSlide'>
       <div className='userInfo' onClick={()=>setshownav(!shownav)}>
         <ImageComp src={user}  style={{width:"30px",height:"30px"}} />
