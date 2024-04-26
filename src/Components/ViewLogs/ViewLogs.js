@@ -86,10 +86,13 @@ export default function ViewLogs() {
         <ImageComp src={user}  style={{width:"30px",height:"30px"}} />
         <p className='_p'> {user_?.userName?user_?.userName:  " "}</p>
       </div>
-      <ImageComp src={logout} onClick={()=>{
+      <div onClick={()=>{
         localStorage.removeItem("userdata");
         navi("/");
-      }}  style={{width:"30px",height:"30px"}} />
+      }} className='logout_' >
+      <ImageComp src={logout}/>
+      {/* style={{width:"30px",height:"30px"}}  */}
+      </div>
     </div>
     <div className='headings_1'>
       <div></div>

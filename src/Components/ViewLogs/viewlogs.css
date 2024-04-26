@@ -8,6 +8,9 @@
     width: 90%;
     margin-top: -10px;
 }
+.logout_{
+    cursor: pointer;
+}
 .subheading{
     margin-top: 10px;
 }
@@ -43,9 +46,10 @@ select{
 }
 .lastslit{
     width: 100%;
-    height:50px;
+    /* height:50px; */
     display: flex;
     justify-content: end;
+    margin-top: 20px;
     align-items: center;
 }
 .headings_1{
@@ -55,8 +59,9 @@ select{
     align-items: center;
 }
 .counts_{
-    height: 50px;
+    /* height: 50px; */
     display: flex;
+
     font-size: 20px;
     padding-top: 20px;
     /* flex-direction: column; */
@@ -154,17 +159,21 @@ th{
         margin-top: 40px;
         font-size: 22px;
     }
+    .mainContenDiv{
+        height: auto;
+    }
     .counts_{
         position: absolute;
         font-size: 15px;
         align-items: end;
-        margin-bottom: 25%;
-        margin-left: 70%;
+        margin-bottom: 20%;
+        margin-left: 65%;
         border: none;
     }
     .lastslit{
-        justify-content: start;
-        padding-left: 40px;
+        justify-content: end;
+        /* padding-left: 40px; */
+        padding-right: none;
     }
     table{
         display: none;
@@ -173,17 +182,24 @@ th{
         overflow: hidden;
         width: 100%;
         border-radius: none;
+        min-height: 200px;
         /* border-bottom: 1px solid black;
         border-left: 1px solid black;
         border-top: 1px solid black; */
 
+    }
+    select,#filterLabel{
+        font-size: 14px;
+    }
+    select{
+        width: 40vw;
     }
     .mobilediv{
         display: flex;
         overflow: hidden;
         flex-direction: column;
         gap: 5px;
-        height: 90%;
+        height: auto;
     }
     .insidemobile{
         width: 99%;
@@ -196,6 +212,9 @@ th{
         border-radius: 4px;
         border: 1px solid black;
     }
+    .buttonsslit{
+        margin-top: 20px;
+    }
     .sameDivs_{
         width: 34%;
         /* border-bottom: 1px solid black;
@@ -206,7 +225,7 @@ th{
         align-items: center;
         height: 100%;
         font-weight: 500;
-
+        font-size: 14px;
         text-align: center;
     }
     #names,#prices{
