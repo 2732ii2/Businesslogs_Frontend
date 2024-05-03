@@ -1,0 +1,136 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:wght@700&display=swap');
+
+.insidemaincon{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+    padding: 40px;
+    position: relative;
+}
+.headings_1{
+    margin-top: -2%;
+ 
+}
+.heads{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    font-family: 'Lucida Sans Unicode';
+}
+.sp_an{
+    font-size: 62px;
+    font-family: "Dancing Script", cursive;
+    font-weight: 500;
+}
+.samenums{
+    background: rgba(230, 226, 226, 0.5);
+    width: 200px;
+    position: absolute;
+    font-family: 'Lucida Sans Unicode';
+    display: flex;
+    padding: 10px;
+    font-size: 26px;
+    letter-spacing: 1px;
+    box-shadow: 0 21px 32px -10px rgba(0,0,0,.3);
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    height: 200px;
+    font-weight: 900;
+}
+.samenums:hover{
+    transition: all .5s;
+    cursor: pointer;
+    letter-spacing: 2px;
+    font-weight: 900 !important;
+}
+#one_1{
+    margin-left: 50%;
+    margin-right: auto;
+    height: 250px;
+    width: 250px;
+    margin-top: -25%;
+}
+#two_2{
+    margin-left: -50%;
+    color: red;
+    margin-right: auto;
+    height: 180px;
+    width: 180px;
+    font-size: 20px;
+    margin-top: -20%;
+}
+#three_3{
+    margin-left: -50%;
+    margin-right: auto;
+    margin-top: 20%;
+    height: 240px;
+    width: 240px;
+}
+#four_4{
+    margin-left: 53%;
+    margin-right: auto;
+    margin-top: 20%;
+    font-size: 20px;
+}
+@media (max-width:1024px) {
+  
+    #one_1{
+        margin-left: 70%;
+        margin-top: -30%;
+    }
+    #two_2{
+        margin-left: -70%;
+        margin-top: -30%;
+    }
+    #three_3{
+        margin-left: -70%;
+        margin-top: 30%;
+    }
+    #four_4{
+        margin-left: 70%;
+        margin-top: 30%;
+    }
+}
+@media (max-width:625px){
+    #maincomp_1{
+        overflow-y: scroll;
+        padding-bottom: 50px;
+    }
+    #one_1,#two_2,#three_3, #four_4{
+        width: 70%;
+        height: 70px;
+        border-radius: 7px;
+        font-size: 18px;
+    }
+    #one_1{
+        margin: 0;
+        margin-top: -20%;
+    }
+    #two_2{
+        margin: 0;
+        margin-top: 100%;
+       
+    }
+    #three_3{
+        margin: 0;
+        margin-top: 150%;
+
+    }
+     #four_4{
+        margin: 0;
+        margin-top: 50%;
+    }
+    .heads{
+        margin-top: 10%;
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 10px;
+    }
+}

@@ -25,8 +25,8 @@ export default function Homepage() {
       navi("/dataInsert");
     }
     else if(update===3){
-      alert("we will send you to that page  : in Next updation");
-      // navi("/expensetracker");
+      // alert("we will send you to that page  : in Next updation");
+      navi("/expensetracker");
     }
   }
   var list_=["View Logs"," Insert Logs","Expense Calculator"];

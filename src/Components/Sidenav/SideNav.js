@@ -18,7 +18,8 @@ export default function SideNav(props) {
       navi("/viewdata");
     } 
     else if(pagename=="Expense Tracker"){
-      alert("we will take you that at next updation");
+      navi("/expensetracker");
+      // alert("we will take you that at next updation");
     }
   },[pagename])
   const list_=["Home","Insert Data","View Logs","Expense Tracker"];

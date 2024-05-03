@@ -57,7 +57,7 @@ export default function DataInsert() {
           console.log(data);
           toast.success(data.data.message);
           setTimeout(() => {
-            navi("/viewdata");
+            navi("/expensetracker");
           }, 1000);
         }
         else if(update===2){
@@ -68,7 +68,7 @@ export default function DataInsert() {
           console.log(data);
           toast.success(data.data.message);
           setTimeout(() => {
-            navi("/viewdata");
+            navi("/expensetracker");
           }, 1000);
         }
         else{
@@ -79,7 +79,7 @@ export default function DataInsert() {
           setloading(false);
           toast.success(data.data.message);
           setTimeout(() => {
-            navi("/viewdata");
+            navi("/expensetracker");
           }, 1000);
       }
         setMakeNill(!makenill);
