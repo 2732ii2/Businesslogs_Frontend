@@ -148,8 +148,11 @@ th{
     background: rgb(240, 238, 238,.4);
     font-weight: 600;
     letter-spacing: 1px;
-    color: rgb(21, 20, 20,.7);
-    border-bottom: 1px solid rgb(179, 177, 177,.3);
+    /* color: rgb(21, 20, 20,.7); */
+    /* border-bottom: 1px solid rgb(179, 177, 177,.3); */
+    border: 1px solid black;
+    background: black;
+    color: white;
 }
 .mobilediv{
     display: none;
@@ -208,9 +211,10 @@ th{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: white;
+        background: rgba(255, 255, 255, .5);;
         border-radius: 4px;
-        border: 1px solid black;
+        /* border: 1px solid rgba(0, 0, 0, .2); */
+        box-shadow: 0 10px 22px -7px  rgba(0, 0, 0, .2);
     }
     .buttonsslit{
         margin-top: 20px;
