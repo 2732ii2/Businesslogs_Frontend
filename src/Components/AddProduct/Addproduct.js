@@ -78,7 +78,7 @@ export default function Addproduct() {
     async function getproducts(){
         try{
             setloading(true);
-            const dataone=await axios.post("http://localhost:7500/getproducts",{},{
+            const dataone=await axios.post("https://businesslogs-backend.onrender.com/getproducts",{},{
             headers:{
                 "authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFzaGFkIiwiZGVjcnlwdGVkUGFzc3dvcmQiOiIkMmIkMTAkTDA1WmNKRkd6Q1BLMXdWcEZWRXZGZWF3TFk5QVhOcHN6djhtbnNNa2czeGttZVRoOW9neUMiLCJpYXQiOjE3MTM2NDg3Mzd9.E68wMyT8ttM5WkHnKLjrP-iKGpQTG90O2yPE6IzUwz8",
                 // user_?.token,
@@ -96,12 +96,20 @@ export default function Addproduct() {
 
         }
     }
+    // useEffect(()=>{
+    //     setloading(true);
+    //     return ()=>{
+    //         setTimeout(() => {
+    //             setloading(false);
+    //         }, 1000);
+    //     }
+    // },[showlist])
     useEffect(()=>{
         getproducts();
     },[instantload])
     async function callapi(dat_a){
        try{
-        const data= await axios.post("http://localhost:7500/addproduct",(dat_a),{
+        const data= await axios.post("https://businesslogs-backend.onrender.com/addproduct",(dat_a),{
             headers:{
                 "authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFzaGFkIiwiZGVjcnlwdGVkUGFzc3dvcmQiOiIkMmIkMTAkTDA1WmNKRkd6Q1BLMXdWcEZWRXZGZWF3TFk5QVhOcHN6djhtbnNNa2czeGttZVRoOW9neUMiLCJpYXQiOjE3MTM2NDg3Mzd9.E68wMyT8ttM5WkHnKLjrP-iKGpQTG90O2yPE6IzUwz8",
             }

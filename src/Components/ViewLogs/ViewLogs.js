@@ -94,9 +94,10 @@ export default function ViewLogs() {
       {/* style={{width:"30px",height:"30px"}}  */}
       </div>
     </div>
-    <div className='headings_1'>
+    <div className='headings_1' >
       <div></div>
-      <h2 className='subheading' style={{marginLeft:"15%"}}>View Logs</h2>
+      <h2 className='subheading' 
+      >View Logs</h2>
       <div className='counts_'>{`Total Logs : ${totalCount?totalCount:"-"}`}</div>
     </div>
  

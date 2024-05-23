@@ -12,28 +12,62 @@
     position: relative;
 }
 .headings_1{
-    margin-top: -2%;
- 
+    margin-top: -4%;
+    width: 80%;
+    /* border: 1px solid black; */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-size: 20px;
+    gap: 20px;
+    font-weight: 700;
+    justify-content:center;
+}
+@media (max-width:600px) {
+    .dateinpdiv{
+        flex-direction: column;
+        width: 100%;
+    }
+}
+.dateinpdiv{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+    margin-left: 50px;
+    gap: 5px;
+}
+.dateinp{
+    padding: 2px;
+    margin-top: 10px;
+    margin-right: 40px;
+    border: 1px solid black;
 }
 .heads{
     display: flex;
     align-items: center;
     gap: 50px;
+    white-space: nowrap;
     font-family: 'Lucida Sans Unicode';
 }
 .sp_an{
-    font-size: 62px;
+    font-size: 42px;
     font-family: "Dancing Script", cursive;
     font-weight: 500;
 }
 .samenums{
-    background: rgba(230, 226, 226, 0.5);
+    background: rgba(249, 247, 247, 0.5);
     width: 200px;
     position: absolute;
+    border: 1px solid rgb(28, 27, 27,.2);
     font-family: 'Lucida Sans Unicode';
     display: flex;
     padding: 10px;
-    font-size: 26px;
+    font-size: 20px;
     letter-spacing: 1px;
     box-shadow: 0 21px 32px -10px rgba(0,0,0,.3);
     align-items: center;
@@ -63,7 +97,7 @@
     margin-right: auto;
     height: 180px;
     width: 180px;
-    font-size: 20px;
+    font-size: 18px;
     margin-top: -20%;
 }
 #three_3{
@@ -77,7 +111,7 @@
     margin-left: 53%;
     margin-right: auto;
     margin-top: 20%;
-    font-size: 20px;
+    font-size: 18px;
 }
 @media (max-width:1024px) {
   
@@ -132,5 +166,14 @@
         flex-direction: column-reverse;
         text-align: center;
         gap: 10px;
+        font-size: 18px;
+    }
+    .dates{
+        font-size: 16px !important;
+        width: 300px !important;
+        margin-left: -20%;
+        margin-bottom:20px ;
+        justify-content: space-between;
+        /* border: 1px solid black; */
     }
 }

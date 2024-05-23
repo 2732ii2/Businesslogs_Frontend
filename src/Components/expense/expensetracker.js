@@ -12,6 +12,11 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export default function Expensetracker() {
     const [shownav,setshownav]=useState(false);
     const navi=useNavigate();
+    const [dates,setdates]=useState({
+      startDate:"",
+      EndDate:""
+    })
+    console.log(dates);
     const [err,seterr]=useState("");
     const [Data,setData]=useState({
         data:[],
@@ -50,6 +55,7 @@ export default function Expensetracker() {
                 },{
                     headers:{
                         "authorization":`${user_?.token}`,
+                        ...dates
                     }
                 })
                 setloading(false);
@@ -70,7 +76,7 @@ export default function Expensetracker() {
     }
     useEffect(()=>{
         apicall();
-    },[user_])
+    },[user_,(dates.startDate && dates.EndDate)])
   return (
     <div className='main' id='maincomp_1'>
     <div className='upperSlide'>
@@ -87,10 +93,23 @@ export default function Expensetracker() {
       </div>
     </div>
     <div className='headings_1'>
-      <div></div>
-      <h2 className='heads' style={{marginLeft:"15%"}}> <span className='sp_an'>{Data?.count <10 ?`0${Data.count} `:`${Data.count}`}
-        </span>   Data for today only if You want then you can filter by specific date</h2>
+      {/* <div style={{minWidth:"400px"}}></div> */}
+      {
+        !Data?.count?"": <h2 className='heads' style={{marginLeft:"5%"}}> <span className='sp_an'>{Data?.count <10 ?`0${Data.count} `:`${Data.count}`}
+        </span> {(dates.startDate && dates.EndDate )?":  Total Data after filteration":":  Total Data before filteration"} </h2>
+      }
       {/* <div className='counts_'>{`Total Logs : ${totalCount?totalCount:"-"}`}</div> */}
+      <div className='dateinpdiv'>
+         <div className='dates' style={{width:"auto",height:"auto",display:"flex",gap:"10px",fontSize:"18px",alignItems:"center"}}>Start Date : <input className='dateinp' onChange={(e)=>{
+          setdates({
+            ...dates,startDate:e.target.value
+          })
+          }} type='date'/></div>
+
+         <div className='dates' style={{width:"auto",height:"auto",display:"flex",gap:"10px",fontSize:"18px",alignItems:"center"}}>End Date : <input className='dateinp' onChange={(e)=>{setdates({
+            ...dates,EndDate:e.target.value
+          })}} type='date'/></div>
+      </div>
     </div>
  
       
@@ -113,7 +132,7 @@ export default function Expensetracker() {
                                     <div className='samenums' id='four_4'>{`Total Amount Left : ${(Data?.data[2]+Data?.data[1])-Data?.data[0]}Rs`}</div>
 
                                      <Doughnut data={Doughnutdata}  style={{width:"100%",minHeight:"200px",height:"200px",marginTop:"-2%",marginBottom:"auto"}} />
-                                   </div>:<div>No data found</div>
+                                   </div>:<div style={{width:"80%",height:"100%",display:"flex",justifyContent:'center',alignItems:'center'}}>No data found</div>
          }
       </div>
            

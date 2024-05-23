@@ -71,6 +71,8 @@ select{
     width: 190px;
     align-items: center;
     justify-content: center;
+    margin-left: 50%;
+    position: absolute;
 }
 .buttonsslit{
     width: 100px;
@@ -170,7 +172,7 @@ th{
         font-size: 15px;
         align-items: end;
         margin-bottom: 20%;
-        margin-left: 65%;
+        margin-left: 55%;
         border: none;
     }
     .lastslit{
