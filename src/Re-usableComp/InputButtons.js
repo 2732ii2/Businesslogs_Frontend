@@ -7,11 +7,19 @@ export default function InputButtons(props) {
     var showloader=props?.showloader;
   return (
     <div className='buttonsupper' style={{position:"relative",display:"flex",justifyContent:"center",alignItems:"center"}}>
-    <button onClick={eventHandler} style={style} disabled={disabled}>{value}</button>
-    {showloader && <div className='loader'>
+    <button onClick={eventHandler} style={style} disabled={disabled}>
+      
+    {
+    showloader && <div className='loader'>
       <div id='insideloader'></div>
       </div>
-    }
+    
+    } 
+      {showloader?null: value}
+    
+    
+    </button>
+    
     </div>
   )
 }

@@ -14,14 +14,24 @@ import toast from 'react-hot-toast';
 import Cleanwhitebackground from './cleanwhitebackground';
 import HandleFile from './filebackremover';
 import handleImageUpload from './filebackremover';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import HandleImageUpload from './filebackremover';
 import axios from 'axios';
 import Toasterfunc from '../../Re-usableComp/Toaster';
 import { height, width } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
+import SideNav from '../Sidenav/SideNav';
+import DraggableDialog from '../Dailogbox/DailogBox';
+import DailogBox from '../Dailogbox/DailogBox';
 export default function Addproduct() {
     const [showlist,setshowlist]=useState(false);
     const [file,setfile]=useState();
+    const [show,setshow]=useState(false);
+    const [displayDialogBox,setDisplayDialogBox]=useState(false);
     const [imgurl,setimgurl]=useState("");
+    const [user_,setuser]=useState({});
+    console.log(user_);
+    const navi=useNavigate();
     const [mainimgurl,setmainimgurl]=useState("");
     const [listdata,setlistdata]=useState([]);
     const [instantload,setinstantload]=useState(false);
@@ -32,63 +42,39 @@ export default function Addproduct() {
     const [message,setmessage]=useState("");
     const [namefile,setfilename]=useState()
     const [fileurl, setfileurl] = useState(null);
+    const [deleteItemId,setdeleteItemId]=useState(0);
     useEffect(()=>{
         if(file)
         {
                 handleImageUpload(file,setfileurl);
         }
     },[file,namefile])
-    // useEffect(()=>{
-    //     setloading(true);
-    //     setTimeout(() => {
-    //         setloading(false);
-    //     }, 1000);
-    // },[showlist])
+    useEffect(()=>{
+        setuser(JSON.parse(localStorage.getItem("userdata")))
+      },[])
     useEffect(()=>{
         console.log(message);
     },[message])
 
 
-    const removeWhiteBackground = (base64) => {
-        console.log(base64);
-        const img = new Image();
-        img.src = base64;
-        img.onload = () => {
-          const canvas = document.createElement('canvas');
-          const ctx = canvas.getContext('2d');
-          canvas.width = img.width;
-          canvas.height = img.height;
-          ctx.drawImage(img, 0, 0);
-    
-          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-          const data = imageData.data;
-    
-          for (let i = 0; i < data.length; i += 4) {
-            if (data[i] === 255 && data[i + 1] === 255 && data[i + 2] === 255) {
-              // If the pixel is white, make it transparent
-              data[i + 3] = 0;
-            }
-          }
-    
-          ctx.putImageData(imageData, 0, 0);
-          console.log(canvas.toDataURL());
-        //   setProcessedBase64(canvas.toDataURL());
-        };
-      };
+  
     async function getproducts(){
+        console.log("get products ",user_.token);
         try{
-            setloading(true);
-            const dataone=await axios.post("https://businesslogs-backend.onrender.com/getproducts",{},{
-            headers:{
-                "authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFzaGFkIiwiZGVjcnlwdGVkUGFzc3dvcmQiOiIkMmIkMTAkTDA1WmNKRkd6Q1BLMXdWcEZWRXZGZWF3TFk5QVhOcHN6djhtbnNNa2czeGttZVRoOW9neUMiLCJpYXQiOjE3MTM2NDg3Mzd9.E68wMyT8ttM5WkHnKLjrP-iKGpQTG90O2yPE6IzUwz8",
-                // user_?.token,
-                // "type":updatedValue ,
-                // "page":page
+            if(user_.token){
+                setloading(true);
+                const dataone=await axios.post("https://businesslogs-backend.onrender.com/getproducts",{},{
+                headers:{
+                    "authorization":`${user_.token}`,
+                }
+                })
+                setloading(false);
+                console.log(dataone.data.data);
+                setlistdata(dataone.data.data)
             }
-            })
-            setloading(false);
-            console.log(dataone.data.data);
-            setlistdata(dataone.data.data)
+            else{
+                setloading(false);
+            }
         }
         catch(e){
             console.log(e);
@@ -96,22 +82,34 @@ export default function Addproduct() {
 
         }
     }
-    // useEffect(()=>{
-    //     setloading(true);
-    //     return ()=>{
-    //         setTimeout(() => {
-    //             setloading(false);
-    //         }, 1000);
-    //     }
-    // },[showlist])
+    const SuccessfullDeletion=async()=>{
+        const dataobj={"id":deleteItemId};
+        try{
+            setDisplayDialogBox(false);
+            setinstantload(!instantload);
+            const response=await axios.post("https://businesslogs-backend.onrender.com/deleteproduct",dataobj,{
+                headers:{
+                    "authorization":`${user_?.token}`
+                }
+            })
+            console.log(response);
+        }
+        catch(e){
+            console.log(e.message);
+            setDisplayDialogBox(false);
+        }
+    }
+    
     useEffect(()=>{
         getproducts();
-    },[instantload])
+    },[instantload,user_])
     async function callapi(dat_a){
        try{
-        const data= await axios.post("https://businesslogs-backend.onrender.com/addproduct",(dat_a),{
+        if(user_.token){
+            const data= await axios.post("https://businesslogs-backend.onrender.com/addproduct",(dat_a),{
             headers:{
-                "authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFzaGFkIiwiZGVjcnlwdGVkUGFzc3dvcmQiOiIkMmIkMTAkTDA1WmNKRkd6Q1BLMXdWcEZWRXZGZWF3TFk5QVhOcHN6djhtbnNNa2czeGttZVRoOW9neUMiLCJpYXQiOjE3MTM2NDg3Mzd9.E68wMyT8ttM5WkHnKLjrP-iKGpQTG90O2yPE6IzUwz8",
+                "authorization":`${user_.token}`,
+                // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFzaGFkIiwiZGVjcnlwdGVkUGFzc3dvcmQiOiIkMmIkMTAkTDA1WmNKRkd6Q1BLMXdWcEZWRXZGZWF3TFk5QVhOcHN6djhtbnNNa2czeGttZVRoOW9neUMiLCJpYXQiOjE3MTM2NDg3Mzd9.E68wMyT8ttM5WkHnKLjrP-iKGpQTG90O2yPE6IzUwz8"
             }
         })
         console.log(data,data.data,data.data.mes);
@@ -123,6 +121,7 @@ export default function Addproduct() {
         setfile("");
         setimgurl("");
         setmainimgurl("");
+        }
        }
        catch(e){
         console.log(e.message);
@@ -140,7 +139,7 @@ export default function Addproduct() {
     useEffect(()=>{
         console.log("reloaded");
     },[instantload])
-    const Submithandler=(e)=>{
+    const Submithandler=async (e)=>{
         // if( !namefile &&  !imgurl){
 
         // }
@@ -151,9 +150,10 @@ export default function Addproduct() {
                 console.log(typeof(file),JSON.stringify(file)   ,file);
                 const Formdata=new FormData();
                 Formdata.append("name",name);
-                Formdata.append("image",file);
+                // Formdata.append("image",file);
+                Formdata.append("image",fileurl);
                 Formdata.append("price",price);
-                callapi(Formdata)
+                await callapi(Formdata);
             }
             else if(imgurl){
                 console.log(name,mainimgurl,price)
@@ -161,10 +161,13 @@ export default function Addproduct() {
                 Formdata.append("name",name);
                 Formdata.append("image",mainimgurl);
                 Formdata.append("price",price);
-                callapi(Formdata)
+                await callapi(Formdata);
             }
             setinstantload(!instantload);
-            setshowlist(true);
+
+            setTimeout(() => {
+                setshowlist(true);
+             }, 1000);
         }
         else{
             e.preventDefault();
@@ -177,17 +180,16 @@ export default function Addproduct() {
   return (
     <div className='main'>
         <div className='upperSlide'>
-            <div className='userInfo' onClick={()=>{}
-                // setshownav(!shownav)
+            <div className='userInfo' onClick={()=>{setshow(!show)}
                 }>
                 <ImageComp src={user}  style={{width:"30px",height:"30px"}} />
                 <p className='_p'> {
-                // user_?.userName?user_?.userName:  " "
+                user_?.userName?user_?.userName:  " "
                 }</p>
             </div>
             <div onClick={()=>{
                 localStorage.removeItem("userdata");
-                // navi("/");
+                navi("/");
             }} className='logout_' >
             <ImageComp src={logout}/>
             {/* style={{width:"30px",height:"30px"}}  */}
@@ -255,28 +257,30 @@ export default function Addproduct() {
                     {
                         loading?<Box sx={{ display: 'flex' ,width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}}>
                         <CircularProgress />
-                      </Box>:listdata?.map((e,i)=>{
-                            // if(e?.Name)
-                            console.log(typeof(e?.Image));
+                      </Box>:!listdata.length?<div>No data</div> :listdata?.map((e,i) => {
+                            if((typeof(e?.Image))!=="object")
                             {
                                 return <div key={i} className='card'>
                                     {
                                      e?.Name
                                     }
-                                    {
-                                 ( typeof(e?.Image))!="object"?
-                                 <div>
+                                  <div>
                                  <ImageComp src={e?.Image}  style={{width:"100px",height:"100px"}} />
                               
                                 </div>
-                                :
-                                <div>
-                                {removeWhiteBackground(e?.Image)}
-                                </div>
-                                 }
-                                <p>{e?.Price}</p>
+                                <p> {e?.Price?`₹ ${e?.Price}`:"" }</p>
 
-                            </div>}
+                                 <DeleteOutlineIcon onClick={()=>{
+                                    console.log(e?._id);
+                                    setdeleteItemId((e?._id));
+                                    setDisplayDialogBox(!displayDialogBox);
+                                 }}  className='deleteIcon_s' />
+
+                            </div>
+                            }
+                            else{
+                                console.log(i);
+                            }
                         })
                     }
                 </div>
@@ -285,6 +289,8 @@ export default function Addproduct() {
             </div>
         </div>
         <Toasterfunc  />
+        <SideNav show={show} />
+        <DailogBox display={displayDialogBox} setDisplay={setDisplayDialogBox} cleardeleteId={setdeleteItemId} onSuccess={SuccessfullDeletion} />
     </div>
   )
 }

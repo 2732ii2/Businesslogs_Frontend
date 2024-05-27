@@ -101,11 +101,11 @@ button:disabled{
     justify-content: center;
     align-items: center;
     margin-top: -8px;
-    margin-left: -30%;
+    margin-left: 50%;
     margin-right: auto;
     height: 30px;
     border-radius: 50%;
-    position: absolute;
+    /* position: absolute; */
     animation: loading 1s  .2s infinite linear ;
 }
 @keyframes loading {

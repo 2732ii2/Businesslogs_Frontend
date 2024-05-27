@@ -45,7 +45,17 @@
     text-transform: capitalize;
     font-weight: 650;
     letter-spacing: 1px;
+    position: relative;
     border: 1px solid rgb(246, 17, 17,.4);
+}
+.deleteIcon_s{
+    position: absolute;
+    margin-top: -80%;
+    margin-left: 80%;
+    padding: 3px;
+    background: white;
+    color: black;
+    border-radius: 50%;
 }
 .card p{
     color: blue;
@@ -245,3 +255,16 @@
     overflow-y: scroll;
     padding: 10px;
 }
+.list_s::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: transparent; /* or add it to the track */
+  }
+  
+  /* Add a thumb */
+  .list_s::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 20px;
+  }
+   
+  

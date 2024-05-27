@@ -21,8 +21,12 @@ export default function SideNav(props) {
       navi("/expensetracker");
       // alert("we will take you that at next updation");
     }
+    else if(pagename=="Add Product"){
+      navi("/addproduct");
+      // alert("we will take you that at next updation");
+    }
   },[pagename])
-  const list_=["Home","Insert Data","View Logs","Expense Tracker"];
+  const list_=["Home","Insert Data","View Logs","Expense Tracker","Add Product"];
   return (
     <div className='sidenav' style={{marginLeft:!show?"-400px":"0px"}} >
       {
