@@ -28,8 +28,12 @@ export default function Homepage() {
       // alert("we will send you to that page  : in Next updation");
       navi("/expensetracker");
     }
+    else if(update===4){
+      // alert("we will send you to that page  : in Next updation");
+      navi("/addproduct");
+    }
   }
-  var list_=["View Logs"," Insert Logs","Expense Calculator"];
+  var list_=["View Logs"," Insert Logs","Expense Calculator","Add Product"];
   return (
     <div className='home'>
       <div className='upperSlide'>

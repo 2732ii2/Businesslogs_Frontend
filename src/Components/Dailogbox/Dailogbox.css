@@ -88,6 +88,7 @@
     color: rgb(52, 50, 50);
     height: 40px;
     margin-top: 20px;
+    border: 1px solid black !important;
     margin-right: 20px;
     border: none !important;
     display: flex;
@@ -99,7 +100,9 @@
     padding-left: 1px !important;
     padding-right: 1px !important;
     padding-top: 1px !important;
-
+    left: auto;
+    right: 10px;
+    cursor: pointer;
 }
 /* .popupdiv:hover{
     width: 40%;

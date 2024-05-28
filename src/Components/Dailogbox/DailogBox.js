@@ -34,7 +34,7 @@ export default function DailogBox({display,setDisplay,cleardeleteId,onSuccess}) 
             <button className='clear' onClick={()=>{
                 setDisplay(!display)
             }}>
-                <ClearIcon style={{fontSize:"22px"}} />
+                <ClearIcon style={{fontSize:"22px"}} className='clearIcon' />
             </button>
         </div>
     </div>
