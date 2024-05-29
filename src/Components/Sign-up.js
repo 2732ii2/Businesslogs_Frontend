@@ -82,8 +82,8 @@ export default function SignUp() {
   return (
     <div className='Signup'>
             <h1 className='mainHeading'>Business Logs</h1>   
-            <Inputs style={{width:"95%",minWidth:"100px"}} value={userNameValue} eventHandler={UserEventHandler} label={"User Name"} type={"text"} placeholder={"...  type "} />
-            <Inputs specialFunction={ClickHandler} style={{width:"95%",minWidth:"100px"}} value={passwordValue} eventHandler={PasswordEventHandler} label={"Password"} type={"password"} placeholder={"... type  "} />
+            <Inputs style={{width:"21vw",minWidth:"100px"}} value={userNameValue} eventHandler={UserEventHandler} label={"User Name"} type={"text"} placeholder={"...  type "} />
+            <Inputs specialFunction={ClickHandler} style={{width:"21vw",minWidth:"100px"}} value={passwordValue} eventHandler={PasswordEventHandler} label={"Password"} type={"password"} placeholder={"... type  "} />
             <div className='buttonsdiv'>
             <InputButtons value={"Login"} eventHandler={ClickHandler} disabled={loading} showloader={loading}/>
             </div>

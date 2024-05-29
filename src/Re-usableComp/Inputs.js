@@ -19,7 +19,7 @@ export default function Inputs(props) {
             if(props?.specialFunction)
             specialFunc();
           }
-        }} placeholder={placeholder} style={{border:value?"2px dashed blue":""}}  value={value} onChange={eventHandler} type={type=="password"? !state?type:"text" :type}
+        }} placeholder={placeholder} style={{border:value?"1px solid black":""}}  value={value} onChange={eventHandler} type={type=="password"? !state?type:"text" :type}
         />
         {
             type=="password"?<img onClick={()=>setstate(!state)} src={ state? hide:show} style={{position:"absolute",fontSize:"12px",width:"20px",height:"20px",left:"auto",right:14,bottom:"auto",top:12}} />:null

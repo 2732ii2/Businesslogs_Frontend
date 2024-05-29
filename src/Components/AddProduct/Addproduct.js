@@ -197,13 +197,13 @@ export default function Addproduct() {
         </div>
         <div className='maincontent_s'>
             <div className='thirty'>
-                    <AddIcon  className='icons' onClick={()=>setshowlist(false)} style={{fontSize:"38px",border:!showlist?"3px solid rgba(255,255,255,.7)":"none"}}/>
-                    <ListIcon className='icons' onClick={()=>setshowlist(true)} style={{fontSize:"38px",border:showlist?"3px solid rgba(255,255,255,.7)":"none"}} />
+                    <AddIcon  className='icons' onClick={()=>setshowlist(false)} style={{border:!showlist?"3px solid rgba(255,255,255,.7)":"none"}}/>
+                    <ListIcon className='icons' onClick={()=>setshowlist(true)} style={{border:showlist?"3px solid rgba(255,255,255,.7)":"none"}} />
             </div>
             <div className='allsec'>
                 {!showlist?
                 <div className='form_' >
-                    <h1>Add your Product</h1>
+                    <h1 className='productheadline'>Add your Product</h1>
                     <form className='formsinside' onSubmit={Submithandler}>
                             <div className='sameforms_'>Name : <input required={true} className='inps_'  type='text' value={name}  onChange={(e)=>(setname(e.target.value))}  placeholder='write product name'/> </div>
                             <div className='sameforms_'>Image :<div id='sm_'> { (file || imgurl) ?<div id='uploaded'>
