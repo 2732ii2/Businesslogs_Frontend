@@ -11,7 +11,7 @@ export default function Inputs(props) {
     const specialFunc= props?.specialFunction;
   return (
     <div style={{position:"relative",...style}} className="mainInputs">
-        <h5 style={{width:"auto",height:"20px",display:"flex",justifyContent:"center",alignItems:'center',fontSize:"20px"}}>{label}</h5> 
+        <h5 style={{width:"auto",height:"20px",display:"flex",justifyContent:"center",alignItems:'center'}}>{label}</h5> 
         <span style={{width:"20px",height:"20px",display:"flex",justifyContent:"center"}}>:</span>
         <input onKeyDown={(e)=>{
           console.log("alert clicked",e.key);

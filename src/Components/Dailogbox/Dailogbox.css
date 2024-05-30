@@ -72,6 +72,27 @@
     border: 1px solid black;
     margin: 1px !important;
 }
+@media (max-width:624px) {
+    .btn1,.btn2{
+        width: 70px !important;
+        min-width: 70px !important;
+        font-size: 20px !important;
+    }
+    .popupdiv{
+        width: 90% !important;
+        margin-left: 1px !important;
+    }
+    .dialogboxtext1{
+        font-size: 14px;
+    }
+    .dialogboxtext{
+        font-size: 16px !important;
+    }
+    .clear{
+        min-width: 1px !important;
+        margin-top: 15px;
+    }
+}
 .dialogbuttons{
     width: 95%;
     display: flex;
