@@ -12,11 +12,14 @@ import toast from 'react-hot-toast';
 import InputButtons from '../../Re-usableComp/InputButtons';
 import { useNavigate } from 'react-router-dom';
 import SideNav from '../Sidenav/SideNav';
+import { getproducts } from '../Axios/Allfunctions';
 export default function DataInsert() {
     const [update,setupdate]=useState(1);
     const [show,setshow]=useState(true);
     const [showsideNav,setShowSideNav]=useState(false);
     const [makenill,setMakeNill]=useState(false);
+    const [filteredlist,setfilteredlist]=useState([]);
+    console.log(filteredlist);
     const navi=useNavigate();
     const [loading,setloading]=useState(false);
     const [user_,setuser]=useState({});
@@ -33,6 +36,30 @@ export default function DataInsert() {
       nameofHelment:"",
       sellingprice:""
     })
+    const [expenseIndex,setexpenseIndex]=useState(0);
+    const [sellingIndex,setsellingIndex]=useState(0);
+    const [repairingIndex,setrepairingIndex]=useState(0);
+    
+    useEffect(()=>{
+      console.log(sellingIndex);
+      if(filteredlist[sellingIndex-1]){
+        var sellvalue=(filteredlist[sellingIndex-1])
+        setSellingState({
+          ...expenseState,nameofHelment:sellvalue
+        })
+      }
+      if(filteredlist[repairingIndex-1]){
+        var repvalue=(filteredlist[repairingIndex-1])
+        setReparingState({
+          ...reparingState,reparing:repvalue
+        })
+      }
+      
+    },[expenseIndex ,sellingIndex,repairingIndex])
+    useEffect(()=>{
+      getproducts(user_,setloading,setfilteredlist,"list");
+    },[user_]);
+    
     useEffect(()=>{
       setuser(JSON.parse(localStorage.getItem("userdata")))
     },[])
@@ -90,6 +117,7 @@ export default function DataInsert() {
         toast.error(e?.response?.data?.err)
       }
     }
+    
     useEffect(()=>{
       setExpenseState({
         nameofExpense:"",
@@ -135,7 +163,7 @@ export default function DataInsert() {
             }
             {
              update===3? <>
-              <Inputs style={{width:"24%",minWidth:"100px"}} label={"Expense"} value={expenseState.nameofExpense} eventHandler={(e)=>{
+              <Inputs style={{width:"24%",minWidth:"100px"}}   label={"Expense"} value={expenseState.nameofExpense} eventHandler={(e)=>{
               setExpenseState({
                 ...expenseState,nameofExpense:e.target.value
               })
@@ -149,7 +177,7 @@ export default function DataInsert() {
             }
             {
               update===2? <>
-              <Inputs style={{width:"24%",minWidth:"100px"}} label={"Repaired"} value={reparingState.reparing} eventHandler={(e)=>{
+              <Inputs style={{width:"24%",minWidth:"100px"}} indexHandler={setrepairingIndex} showfilter={true} filteredlist={filteredlist} label={"Repaired"} value={reparingState.reparing} eventHandler={(e)=>{
                 setReparingState({
                   ...reparingState,reparing:e.target.value
                 })
@@ -163,7 +191,7 @@ export default function DataInsert() {
             }
             {
               update===1? <>
-              <Inputs style={{width:"24%",minWidth:"100px"}} label={"Product"} value={sellingState.nameofHelment} eventHandler={(e)=>{
+              <Inputs showfilter={true} indexHandler={setsellingIndex} filteredlist={filteredlist} style={{width:"24%",minWidth:"100px"}} label={"Product"} value={sellingState.nameofHelment} eventHandler={(e)=>{
                   setSellingState({
                     ...sellingState,nameofHelment:e.target.value
                   })

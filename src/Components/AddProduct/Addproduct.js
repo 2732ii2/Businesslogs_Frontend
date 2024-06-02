@@ -23,6 +23,7 @@ import { useNavigate } from 'react-router-dom';
 import SideNav from '../Sidenav/SideNav';
 import DraggableDialog from '../Dailogbox/DailogBox';
 import DailogBox from '../Dailogbox/DailogBox';
+import { getproducts } from '../Axios/Allfunctions';
 export default function Addproduct() {
     const [showlist,setshowlist]=useState(false);
     const [file,setfile]=useState();
@@ -58,30 +59,7 @@ export default function Addproduct() {
 
 
   
-    async function getproducts(){
-        console.log("get products ",user_.token);
-        try{
-            if(user_.token){
-                setloading(true);
-                const dataone=await axios.post("https://businesslogs-backend.onrender.com/getproducts",{},{
-                headers:{
-                    "authorization":`${user_.token}`,
-                }
-                })
-                setloading(false);
-                console.log(dataone.data.data);
-                setlistdata(dataone.data.data)
-            }
-            else{
-                setloading(false);
-            }
-        }
-        catch(e){
-            console.log(e);
-            setloading(false);
-
-        }
-    }
+    
     const SuccessfullDeletion=async()=>{
         const dataobj={"id":deleteItemId};
         try{
@@ -101,7 +79,7 @@ export default function Addproduct() {
     }
     
     useEffect(()=>{
-        getproducts();
+        getproducts(user_,setloading,setlistdata,"detailed");
     },[instantload,user_])
     async function callapi(dat_a){
        try{
