@@ -1,5 +1,8 @@
 <h2> Solution for Retailer shop data , for Saving and getting extracting result's out of it</h2>
 
+# Screenshot
+
+<img width="1440" alt="Screenshot 2024-10-09 at 12 12 28 AM" src="https://github.com/user-attachments/assets/fe1e7421-abab-4a67-9d86-6cb6379886d7">
 
 # Figma Design for this project  
 : https://www.figma.com/file/xcbbuNwUd2L5hmHctkxbT0/Untitled?type=design&node-id=0-1&mode=design&t=wpNwx327nCbaiLZf-0
